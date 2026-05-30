@@ -35,6 +35,24 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+html[data-theme="light"] {
+  --ink:         #f5f1e9;
+  --ink-2:       #ede9e0;
+  --ink-3:       #e3dfd6;
+  --ink-4:       #d6d2c9;
+
+  --line:        rgba(10, 11, 13, 0.10);
+  --line-soft:   rgba(10, 11, 13, 0.06);
+  --line-strong: rgba(10, 11, 13, 0.20);
+
+  --paper:       #1a1d22;
+  --paper-dim:   rgba(26, 29, 34, 0.65);
+  --paper-faint: rgba(26, 29, 34, 0.38);
+
+  --signal-soft: rgba(255, 92, 40, 0.10);
+  --signal-line: rgba(255, 92, 40, 0.22);
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -485,6 +503,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing:
 .footer .fcols a { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; color: var(--paper-dim); transition: color 0.3s; }
 .footer .fcols a:hover { color: var(--signal); }
 .footer .fnote { font-family: var(--font-mono); font-size: 11.5px; color: var(--paper-faint); letter-spacing: 0.04em; }
+.theme-toggle { background: none; border: none; cursor: pointer; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; color: var(--paper-faint); padding: 0; transition: color 0.3s; text-transform: uppercase; }
+.theme-toggle:hover { color: var(--signal); }
 
 /* section heading block */
 .shead { max-width: 760px; margin-bottom: 8px; }

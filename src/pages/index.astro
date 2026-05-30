@@ -66,6 +66,7 @@ const movementLayers = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon.svg`} type="image/svg+xml" />
+    <script>const t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');</script>
     <title>Outcome Machines — Build AI systems that improve your most important goals</title>
     <meta
       name="description"
@@ -357,6 +358,7 @@ const movementLayers = [
           <a href="#contact">Book a demo</a>
         </div>
         <div class="fnote">© {new Date().getFullYear()} Outcome Machines</div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme">◑ Light</button>
       </div>
     </footer>
 
@@ -380,6 +382,25 @@ const movementLayers = [
       const onScroll = () => nav?.classList.toggle("scrolled", window.scrollY > 24);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
+
+      // theme toggle
+      const toggle = document.getElementById("theme-toggle");
+      const updateToggle = () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        toggle.textContent = isLight ? "◑ Dark" : "◑ Light";
+      };
+      updateToggle();
+      toggle.addEventListener("click", () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        if (isLight) {
+          document.documentElement.removeAttribute("data-theme");
+          localStorage.removeItem("theme");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+        updateToggle();
+      });
     </script>
   </body>
 </html>
