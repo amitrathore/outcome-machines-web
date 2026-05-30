@@ -106,24 +106,40 @@ export const GET: APIRoute = async () => {
               ],
             },
           },
-          // Bottom: domain
+          // Bottom: logo mark + domain
           {
             type: "div",
             props: {
-              style: {
-                display: "flex",
-                justifyContent: "flex-end",
-              },
+              style: { display: "flex", justifyContent: "space-between", alignItems: "center" },
               children: [
+                // Circle logo mark
                 {
                   type: "div",
                   props: {
                     style: {
-                      fontSize: 18,
-                      fontWeight: 800,
-                      color: "#ff5c28",
-                      letterSpacing: "0.03em",
+                      width: 40,
+                      height: 40,
+                      borderRadius: "50%",
+                      border: "2.5px solid #ff5c28",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     },
+                    children: [
+                      {
+                        type: "div",
+                        props: {
+                          style: { width: 12, height: 12, borderRadius: "50%", background: "#ff5c28" },
+                        },
+                      },
+                    ],
+                  },
+                },
+                // Domain
+                {
+                  type: "div",
+                  props: {
+                    style: { fontSize: 18, fontWeight: 800, color: "#ff5c28", letterSpacing: "0.03em" },
                     children: "outcomemachines.com",
                   },
                 },
