@@ -493,6 +493,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing:
 .cta h2 { position: relative; }
 .cta .lede { margin: 24px auto 0; text-align: center; }
 .cta-actions { display: flex; gap: 14px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+.tidycal-wrap { margin-top: 48px; max-width: 900px; margin-inline: auto; }
 
 /* ============================================================
    FOOTER
