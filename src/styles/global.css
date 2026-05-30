@@ -479,6 +479,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing:
 .think-card .booktitle { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -0.03em; margin: 14px 0 10px; }
 .think-card .booksub { color: var(--paper-dim); font-size: 15px; font-style: italic; }
 .think-card .glow2 { position: absolute; width: 300px; height: 300px; right: -80px; bottom: -100px; background: radial-gradient(circle, var(--signal-soft), transparent 65%); }
+.coming-soon { display: inline-block; margin-top: 18px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--signal); border: 1px solid var(--signal-line); padding: 4px 10px; border-radius: 3px; }
 @media (max-width: 820px) { .think { grid-template-columns: 1fr; } }
 
 /* ============================================================
