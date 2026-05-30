@@ -23,79 +23,101 @@ export const GET: APIRoute = async () => {
           fontFamily: "Bricolage Grotesque",
         },
         children: [
-          // Logo mark
+          // Top: word + pronunciation
           {
             type: "div",
             props: {
-              style: {
-                width: 48,
-                height: 48,
-                borderRadius: "50%",
-                border: "3px solid #ff5c28",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              },
+              style: { display: "flex", alignItems: "baseline", gap: 28 },
               children: [
                 {
                   type: "div",
                   props: {
-                    style: {
-                      width: 14,
-                      height: 14,
-                      borderRadius: "50%",
-                      background: "#ff5c28",
-                    },
+                    style: { fontSize: 62, fontWeight: 800, color: "#1a1d22" },
+                    children: "outcome machine",
+                  },
+                },
+                {
+                  type: "div",
+                  props: {
+                    style: { fontSize: 24, fontWeight: 800, color: "rgba(26,29,34,0.40)" },
+                    children: "/ˈaʊtkʌm məˈʃiːn/",
                   },
                 },
               ],
             },
           },
-          // Headline
+          // Ruled line
           {
             type: "div",
             props: {
               style: {
-                fontSize: 84,
-                fontWeight: 800,
-                color: "#1a1d22",
-                lineHeight: 1.05,
-                maxWidth: 900,
+                height: 1,
+                background: "rgba(26,29,34,0.15)",
+                width: "100%",
               },
-              children: "Build Outcome\nMachines.",
             },
           },
-          // Tagline + URL row
+          // Middle: noun + definition + example
           {
             type: "div",
             props: {
-              style: {
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-end",
-              },
+              style: { display: "flex", flexDirection: "column", gap: 18 },
               children: [
                 {
                   type: "div",
                   props: {
-                    style: {
-                      fontSize: 28,
-                      color: "rgba(26,29,34,0.60)",
-                      maxWidth: 660,
-                      lineHeight: 1.4,
-                    },
-                    children:
-                      "AI systems that own an outcome — and improve it continuously.",
+                    style: { fontSize: 22, fontWeight: 800, color: "#ff5c28", letterSpacing: "0.08em" },
+                    children: "NOUN",
                   },
                 },
                 {
                   type: "div",
                   props: {
                     style: {
-                      fontSize: 20,
-                      color: "#ff5c28",
+                      fontSize: 30,
                       fontWeight: 800,
-                      letterSpacing: "0.02em",
+                      color: "rgba(26,29,34,0.78)",
+                      lineHeight: 1.5,
+                      maxWidth: 980,
+                    },
+                    children:
+                      "An AI system purpose-built to own a single business outcome — that monitors, explains, recommends, executes, and learns until the number moves.",
+                  },
+                },
+                {
+                  type: "div",
+                  props: {
+                    style: {
+                      fontSize: 22,
+                      fontWeight: 800,
+                      color: "rgba(26,29,34,0.42)",
+                      lineHeight: 1.5,
+                      maxWidth: 860,
+                    },
+                    children:
+                      '"We deployed an Outcome Machine for revenue recovery. It paid for itself in six weeks."',
+                  },
+                },
+              ],
+            },
+          },
+          // Bottom: domain
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
+                justifyContent: "flex-end",
+              },
+              children: [
+                {
+                  type: "div",
+                  props: {
+                    style: {
+                      fontSize: 18,
+                      fontWeight: 800,
+                      color: "#ff5c28",
+                      letterSpacing: "0.03em",
                     },
                     children: "outcomemachines.com",
                   },
