@@ -175,6 +175,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing:
   transition: border-color 0.4s, background 0.4s;
 }
 .nav.scrolled { border-bottom-color: var(--line); background: rgba(10,11,13,0.82); }
+.nav.scrolled .brand,
+.nav.scrolled .nav-links a { color: rgba(244, 241, 234, 0.80); }
+.nav.scrolled .nav-links a:hover { color: #f4f1ea; }
 .brand { display: flex; align-items: center; gap: 11px; font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; }
 .brand .mark {
   width: 26px; height: 26px;
