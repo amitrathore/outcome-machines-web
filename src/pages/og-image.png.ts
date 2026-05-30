@@ -2,11 +2,16 @@ import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
 
-const FONT_URL =
+const FONT_BRICOLAGE =
   "https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9U6as8bTXq_nANBjzKo3IeZx8z6up5BeSl5jBNz_19PpbpMXuECpwUxJBOm_OJWiaaD30YfKfjZZoLvZvlyM0.ttf";
+const FONT_NOTO =
+  "https://fonts.gstatic.com/s/notosans/v42/o-0mIpQlx3QUlC5A4PNB6Ryti20_6n1iPHjcz6L1SoM-jCpoiyD9A99d.ttf";
 
 export const GET: APIRoute = async () => {
-  const fontData = await fetch(FONT_URL).then((r) => r.arrayBuffer());
+  const [fontData, notoData] = await Promise.all([
+    fetch(FONT_BRICOLAGE).then((r) => r.arrayBuffer()),
+    fetch(FONT_NOTO).then((r) => r.arrayBuffer()),
+  ]);
 
   const svg = await satori(
     {
@@ -39,7 +44,7 @@ export const GET: APIRoute = async () => {
                 {
                   type: "div",
                   props: {
-                    style: { fontSize: 24, fontWeight: 800, color: "rgba(26,29,34,0.40)" },
+                    style: { fontSize: 24, fontWeight: 400, color: "rgba(26,29,34,0.40)", fontFamily: "Noto Sans" },
                     children: "/ˈaʊtkʌm məˈʃiːn/",
                   },
                 },
@@ -132,12 +137,8 @@ export const GET: APIRoute = async () => {
       width: 1200,
       height: 630,
       fonts: [
-        {
-          name: "Bricolage Grotesque",
-          data: fontData,
-          weight: 800,
-          style: "normal",
-        },
+        { name: "Bricolage Grotesque", data: fontData, weight: 800, style: "normal" },
+        { name: "Noto Sans", data: notoData, weight: 400, style: "normal" },
       ],
     }
   );
