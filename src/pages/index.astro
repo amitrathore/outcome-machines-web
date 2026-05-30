@@ -1,0 +1,366 @@
+---
+import "../styles/global.css";
+
+const machines = [
+  {
+    name: "Revenue Recovery",
+    desc: "Detects revenue leakage across the order-to-cash flow, then recovers it before it compounds.",
+    metric: "$5.4M",
+    label: "recovered / quarter",
+  },
+  {
+    name: "Collections",
+    desc: "Prioritises interventions by likelihood-to-pay and orchestrates the next best action per account.",
+    metric: "+22%",
+    label: "promise-to-pay rate",
+  },
+  {
+    name: "Customer Retention",
+    desc: "Surfaces churn drivers as they emerge and recommends the action that keeps the account.",
+    metric: "−31%",
+    label: "voluntary churn",
+  },
+  {
+    name: "Sales Productivity",
+    desc: "Finds where deals stall and improves conversion by coaching the motion that moves them.",
+    metric: "+18%",
+    label: "win rate",
+  },
+  {
+    name: "Branch Performance",
+    desc: "Optimises distributed operations by learning what the top branches do — and propagating it.",
+    metric: "+14%",
+    label: "throughput / branch",
+  },
+  {
+    name: "Procurement",
+    desc: "Improves sourcing and spend efficiency by reasoning over supplier, price and demand signals.",
+    metric: "−9%",
+    label: "addressable spend",
+  },
+];
+
+const loop = [
+  { n: "01", t: "Monitor", d: "Watches the goal continuously against its living model of the enterprise." },
+  { n: "02", t: "Explain", d: "Reasons about why the metric moved — causal, not correlational." },
+  { n: "03", t: "Recommend", d: "Proposes the next best action, ranked by expected impact." },
+  { n: "04", t: "Execute", d: "Acts through governed, inspectable, approved workflows." },
+  { n: "05", t: "Learn", d: "Measures the outcome and updates itself for the next decision." },
+];
+
+const layers = [
+  { num: "05", title: "Outcome Machines", role: "Commercial offering", desc: "AI systems that continuously improve one business outcome.", product: true },
+  { num: "04", title: "Orgtwins", role: "Enterprise model", desc: "Living digital representations of the enterprise — goals, metrics, processes, causality." },
+  { num: "03", title: "DatacentrIQ", role: "Platform", desc: "The Enterprise Intelligence Platform that creates and maintains enterprise understanding." },
+  { num: "02", title: "Orgminders", role: "Community", desc: "The leaders and practitioners operating intelligent, self-aware enterprises." },
+  { num: "01", title: "Orgminding", role: "Philosophy", desc: "The discipline of building organizations that understand, reason, act and learn." },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <title>Outcome Machines — Build AI systems that improve your most important goals</title>
+    <meta
+      name="description"
+      content="Outcome Machines are AI-powered systems that continuously improve a specific business outcome. They monitor, explain, recommend, execute and learn — powered by DatacentrIQ and built on Orgtwins."
+    />
+    <meta property="og:title" content="Outcome Machines" />
+    <meta property="og:description" content="Build Outcome Machines for your most important business goals." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <a class="brand" href="#top"><span class="mark"></span>Outcome Machines</a>
+      <div class="nav-links">
+        <a href="#machines">The Machines</a>
+        <a href="#how">How it works</a>
+        <a href="#technology">Technology</a>
+        <a href="#contact" class="btn btn--primary nav-cta">Book a demo<span class="arrow">→</span></a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-glow"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow reveal">A new category of business system</span>
+          <h1 class="display reveal" data-d="1">
+            Build <span class="em">Outcome&nbsp;Machines</span> for your most important business goals.
+          </h1>
+          <p class="lede reveal" data-d="2">
+            Not another dashboard. Not another control tower. An Outcome Machine is an AI system
+            that owns one outcome — and continuously monitors, explains, recommends, executes and
+            learns until the number moves.
+          </p>
+          <div class="hero-actions reveal" data-d="3">
+            <a href="#contact" class="btn btn--primary">Deploy your first machine<span class="arrow">→</span></a>
+            <a href="#how" class="btn btn--ghost">See how it works</a>
+          </div>
+          <div class="hero-stats reveal" data-d="4">
+            <div class="hstat"><div class="n">$5.4M</div><div class="hstat-l">cash recovered</div></div>
+            <div class="hstat"><div class="n">−31%</div><div class="hstat-l">churn reduced</div></div>
+            <div class="hstat"><div class="n">24/7</div><div class="hstat-l">closing the loop</div></div>
+          </div>
+        </div>
+
+        <!-- SIGNATURE: core loop engine -->
+        <div class="hero-engine-wrap reveal" data-d="2">
+          <div class="engine" aria-hidden="true">
+            <div class="engine-ring"></div>
+            <div class="engine-ring engine-ring--2"></div>
+            <div class="engine-ring engine-ring--3"></div>
+            <div class="engine-sweep"></div>
+            <div class="engine-core">
+              <div>
+                <div class="lbl">Outcome</div>
+                <div class="val">+ ↑</div>
+              </div>
+            </div>
+            <div class="engine-node" style="--a:0deg;   --delay:0s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">01</span> Monitor</div>
+            </div>
+            <div class="engine-node" style="--a:72deg;  --delay:1s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">02</span> Explain</div>
+            </div>
+            <div class="engine-node" style="--a:144deg; --delay:2s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">03</span> Recommend</div>
+            </div>
+            <div class="engine-node" style="--a:216deg; --delay:3s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">04</span> Execute</div>
+            </div>
+            <div class="engine-node" style="--a:288deg; --delay:4s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">05</span> Learn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- DON'T BUY / BUY -->
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">The core insight</span>
+          <h2 class="h2">Organizations don't buy technology.<br />They buy results.</h2>
+        </div>
+        <div class="split reveal" data-d="1">
+          <div class="col-no">
+            <h3 class="h3">What gets sold</h3>
+            <ul class="buy-list">
+              <li><span class="ic">×</span> AI &amp; Agents</li>
+              <li><span class="ic">×</span> Decision Intelligence</li>
+              <li><span class="ic">×</span> Knowledge Graphs</li>
+              <li><span class="ic">×</span> Metric Governance</li>
+              <li><span class="ic">×</span> Dashboards &amp; Control Towers</li>
+            </ul>
+          </div>
+          <div class="col-yes">
+            <h3 class="h3">What gets bought</h3>
+            <ul class="buy-list">
+              <li><span class="ic">↑</span> Revenue growth</li>
+              <li><span class="ic">↑</span> Cash recovery</li>
+              <li><span class="ic">↑</span> Customer retention</li>
+              <li><span class="ic">↑</span> Productivity &amp; performance</li>
+              <li><span class="ic">↑</span> Reduced risk</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS / CORE LOOP -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">The core loop</span>
+          <h2 class="h2">A control tower watches.<br />An Outcome Machine produces.</h2>
+          <p class="lede">Every Outcome Machine runs the same closed loop — endlessly — against a living model of your enterprise. That loop is the difference between visibility and results.</p>
+        </div>
+        <div class="loop-steps reveal" data-d="1">
+          {loop.map((s) => (
+            <div class="loop-step">
+              <span class="sn">{s.n}</span>
+              <h4>{s.t}</h4>
+              <p>{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- MACHINES -->
+    <section class="section" id="machines">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">The catalog</span>
+          <h2 class="h2">One machine per outcome.</h2>
+          <p class="lede">Each Outcome Machine is purpose-built for a single goal and deployed against your Orgtwin. Start with one. Add more as the results compound.</p>
+        </div>
+        <div class="machines">
+          {machines.map((m, i) => (
+            <article class="machine reveal" data-d={(i % 3) + 1}>
+              <div class="mhead">
+                <span class="midx">OM-{String(i + 1).padStart(2, "0")}</span>
+                <span class="status"><span class="led"></span> Running</span>
+              </div>
+              <h3>{m.name}</h3>
+              <p>{m.desc}</p>
+              <div class="metric">
+                <span class="mv">{m.metric}</span>
+                <span class="ml">{m.label}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- TOWERS vs MACHINES -->
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">Why not a control tower</span>
+          <h2 class="h2">Watching is not improving.</h2>
+        </div>
+        <div class="versus reveal" data-d="1">
+          <div class="versus-card">
+            <span class="vk">Control Tower</span>
+            <h3>Watches</h3>
+            <ul class="versus-list">
+              <li>→ <b>Monitoring</b></li>
+              <li>→ <b>Visibility</b></li>
+              <li>→ <b>Awareness</b></li>
+              <li>→ <b>Coordination</b></li>
+            </ul>
+          </div>
+          <div class="versus-mid">
+            EVOLVES&nbsp;INTO
+            <span class="ar">→</span>
+          </div>
+          <div class="versus-card active">
+            <span class="vk">Outcome Machine</span>
+            <h3>Produces</h3>
+            <ul class="versus-list">
+              <li>→ <b>Action</b></li>
+              <li>→ <b>Improvement</b></li>
+              <li>→ <b>Measurable results</b></li>
+              <li>→ <b>Continuous learning</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="section" id="technology">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">Under the hood</span>
+          <h2 class="h2">Powered by DatacentrIQ.<br />Built on Orgtwins.</h2>
+          <p class="lede">Outcome Machines are the visible layer of a coherent ecosystem. Each layer has a distinct role — none competes with the others.</p>
+        </div>
+        <div class="stack">
+          {layers.map((l, i) => (
+            <div class={`layer reveal${l.product ? " is-product" : ""}`} data-d={(i % 5) + 1}>
+              <div>
+                <div class="ltitle">{l.title}</div>
+                <div class="lrole">{l.role}</div>
+              </div>
+              <div class="ldesc">{l.desc}</div>
+              <div class="lnum">{l.num}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="flow reveal">
+          <p class="flow-line">
+            <span class="dim">Organizations need</span> Orgminding. <span class="dim">Orgminders practice it.</span>
+            <span class="b"> DatacentrIQ</span> <span class="dim">enables it and builds</span> <span class="b">Orgtwins</span>.
+            <span class="b"> Outcome Machines</span> <span class="dim">operate on Orgtwins — and continuously improve your business outcomes.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THOUGHT LEADERSHIP -->
+    <section class="section section--tight">
+      <div class="wrap think">
+        <div class="think-card reveal">
+          <div class="glow2"></div>
+          <span class="booktag">The book · The movement</span>
+          <div class="booktitle">Orgminding</div>
+          <div class="booksub">How intelligent enterprises learn, decide and improve.</div>
+        </div>
+        <div class="reveal" data-d="1">
+          <span class="eyebrow">The philosophy</span>
+          <h2 class="h2" style="margin:18px 0 16px;">Enterprises are data-rich, self-awareness poor.</h2>
+          <p class="lede">Orgminding is the discipline of building organizations that continuously understand themselves, reason about performance, take action, and learn from outcomes. It's the intellectual foundation beneath every Outcome Machine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="cta-glow"></div>
+      <div class="wrap">
+        <span class="eyebrow reveal" style="justify-content:center;">Start with one outcome</span>
+        <h2 class="display reveal" data-d="1" style="margin-top:22px;">Pick a goal.<br />Deploy a machine.</h2>
+        <p class="lede reveal" data-d="2">Tell us the business outcome that matters most this quarter. We'll show you the Outcome Machine that moves it.</p>
+        <div class="cta-actions reveal" data-d="3">
+          <a href="mailto:hello@outcomemachines.ai" class="btn btn--primary">Book a demo<span class="arrow">→</span></a>
+          <a href="#how" class="btn btn--ghost">Explore the core loop</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="#top"><span class="mark"></span>Outcome Machines</a>
+        <div class="fcols">
+          <a href="#machines">The Machines</a>
+          <a href="#how">Core Loop</a>
+          <a href="#technology">DatacentrIQ</a>
+          <a href="#technology">Orgtwins</a>
+          <a href="#contact">Book a demo</a>
+        </div>
+        <div class="fnote">© {new Date().getFullYear()} Outcome Machines</div>
+      </div>
+    </footer>
+
+    <script>
+      // scroll reveal
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // nav border on scroll
+      const nav = document.getElementById("nav");
+      const onScroll = () => nav?.classList.toggle("scrolled", window.scrollY > 24);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    </script>
+  </body>
+</html>
