@@ -48,10 +48,13 @@ const loop = [
   { n: "05", t: "Learn", d: "Measures the outcome and updates itself for the next decision." },
 ];
 
-const layers = [
+const techLayers = [
   { num: "05", title: "Outcome Machines", role: "Commercial offering", desc: "AI systems that continuously improve one business outcome.", product: true },
   { num: "04", title: "Orgtwins", role: "Enterprise model", desc: "Living digital representations of the enterprise — goals, metrics, processes, causality." },
   { num: "03", title: "DatacentrIQ", role: "Platform", desc: "The Enterprise Intelligence Platform that creates and maintains enterprise understanding." },
+];
+
+const movementLayers = [
   { num: "02", title: "Orgminders", role: "Community", desc: "The leaders and practitioners operating intelligent, self-aware enterprises." },
   { num: "01", title: "Orgminding", role: "Philosophy", desc: "The discipline of building organizations that understand, reason, act and learn." },
 ];
@@ -86,6 +89,7 @@ const layers = [
         <a href="#machines">The Machines</a>
         <a href="#how">How it works</a>
         <a href="#technology">Technology</a>
+        <a href="#movement">The Movement</a>
         <a href="#contact" class="btn btn--primary nav-cta">Book a demo<span class="arrow">→</span></a>
       </div>
     </nav>
@@ -273,8 +277,8 @@ const layers = [
           <p class="lede">Outcome Machines are the visible layer of a coherent ecosystem. Each layer has a distinct role — none competes with the others.</p>
         </div>
         <div class="stack">
-          {layers.map((l, i) => (
-            <div class={`layer reveal${l.product ? " is-product" : ""}`} data-d={(i % 5) + 1}>
+          {techLayers.map((l, i) => (
+            <div class={`layer reveal${l.product ? " is-product" : ""}`} data-d={(i % 3) + 1}>
               <div>
                 <div class="ltitle">{l.title}</div>
                 <div class="lrole">{l.role}</div>
@@ -287,27 +291,40 @@ const layers = [
 
         <div class="flow reveal">
           <p class="flow-line">
-            <span class="dim">Organizations need</span> Orgminding. <span class="dim">Orgminders practice it.</span>
-            <span class="b"> DatacentrIQ</span> <span class="dim">enables it and builds</span> <span class="b">Orgtwins</span>.
+            <span class="b">DatacentrIQ</span> <span class="dim">creates and maintains</span> <span class="b">Orgtwins</span>.
             <span class="b"> Outcome Machines</span> <span class="dim">operate on Orgtwins — and continuously improve your business outcomes.</span>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- THOUGHT LEADERSHIP -->
-    <section class="section section--tight">
-      <div class="wrap think">
-        <div class="think-card reveal">
-          <div class="glow2"></div>
-          <span class="booktag">The book · The movement</span>
-          <div class="booktitle">Orgminding</div>
-          <div class="booksub">How intelligent enterprises learn, decide and improve.</div>
-        </div>
-        <div class="reveal" data-d="1">
-          <span class="eyebrow">The philosophy</span>
-          <h2 class="h2" style="margin:18px 0 16px;">Enterprises are data-rich, self-awareness poor.</h2>
+    <!-- MOVEMENT -->
+    <section class="section" id="movement">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">The movement</span>
+          <h2 class="h2">Enterprises are data-rich,<br />self-awareness poor.</h2>
           <p class="lede">Orgminding is the discipline of building organizations that continuously understand themselves, reason about performance, take action, and learn from outcomes. It's the intellectual foundation beneath every Outcome Machine.</p>
+        </div>
+        <div class="stack">
+          {movementLayers.map((l, i) => (
+            <div class={`layer reveal`} data-d={(i % 2) + 1}>
+              <div>
+                <div class="ltitle">{l.title}</div>
+                <div class="lrole">{l.role}</div>
+              </div>
+              <div class="ldesc">{l.desc}</div>
+              <div class="lnum">{l.num}</div>
+            </div>
+          ))}
+        </div>
+        <div class="think reveal" data-d="2" style="margin-top:48px;">
+          <div class="think-card">
+            <div class="glow2"></div>
+            <span class="booktag">The book · The movement</span>
+            <div class="booktitle">Orgminding</div>
+            <div class="booksub">How intelligent enterprises learn, decide and improve.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -335,6 +352,8 @@ const layers = [
           <a href="#how">Core Loop</a>
           <a href="#technology">DatacentrIQ</a>
           <a href="#technology">Orgtwins</a>
+          <a href="#movement">Orgminding</a>
+          <a href="#movement">Orgminders</a>
           <a href="#contact">Book a demo</a>
         </div>
         <div class="fnote">© {new Date().getFullYear()} Outcome Machines</div>
