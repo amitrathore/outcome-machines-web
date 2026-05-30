@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 // - Project page (any other repo name): set `base` to '/<repo-name>'.
 // Update `site` to your final URL.
 export default defineConfig({
-  site: 'https://amitrathore.github.io',
-  base: '/outcome-machines-web',
+  site: 'https://outcomemachines.com',
+  base: '/',
   trailingSlash: 'ignore',
 });
