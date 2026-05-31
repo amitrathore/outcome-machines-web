@@ -1,0 +1,239 @@
+---
+import "../styles/global.css";
+
+const team = [
+  {
+    name: "Amit Rathore",
+    title: "Cofounder & CEO",
+    initials: "AR",
+    bio: "Amit has spent two decades building data-intensive systems and AI platforms. He founded Outcome Machines on the belief that enterprises deserve AI that owns results — not just surfaces them.",
+  },
+  {
+    name: "Manjul Pathak",
+    title: "Founder & CTO",
+    initials: "MP",
+    bio: "Manjul architects the intelligence layer that makes Outcome Machines possible — from the Orgtwin data model to the causal reasoning engines that power every recommendation.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>const t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+    <title>About — Outcome Machines</title>
+    <meta name="description" content="Meet the team building Outcome Machines — AI systems that own business outcomes and continuously improve them." />
+    <meta property="og:title" content="About — Outcome Machines" />
+    <meta property="og:description" content="Meet the team building Outcome Machines — AI systems that own business outcomes and continuously improve them." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://outcomemachines.com/about" />
+    <meta property="og:image" content="https://outcomemachines.com/og-image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <a class="brand" href="/"><span class="mark"></span>Outcome Machines</a>
+      <div class="nav-links">
+        <a href="/#machines">The Machines</a>
+        <a href="/#how">How it Works</a>
+        <a href="/#technology">The Technology</a>
+        <a href="/#movement">The Movement</a>
+        <a href="/#contact" class="btn btn--primary nav-cta">Book a demo<span class="arrow">→</span></a>
+      </div>
+    </nav>
+
+    <!-- INTRO -->
+    <section class="section about-hero">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">About us</span>
+          <h1 class="h2">We believe the future of business<br />is outcomes, not software.</h1>
+          <p class="lede">Enterprises have spent decades buying tools that show them what happened. We're building the systems that change what happens next — AI that owns a goal, works it continuously, and improves with every cycle.</p>
+        </div>
+        <div class="about-vision reveal" data-d="2">
+          <p>Outcome Machines was founded on a simple conviction: that an enterprise should be able to point at its most important goal, deploy an AI system against it, and watch that number move. Not a report. Not an alert. A machine that works.</p>
+          <p>We call this Orgminding — the discipline of building organizations that understand themselves, reason about performance, act on that reasoning, and learn from what happens. Every Outcome Machine we build is an expression of that discipline, made concrete.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section" id="team">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">The team</span>
+          <h2 class="h2">Built by people who've<br />felt the problem firsthand.</h2>
+        </div>
+        <div class="team-grid">
+          {team.map((member, i) => (
+            <div class="team-card reveal" data-d={i + 1}>
+              <div class="team-avatar">
+                <span>{member.initials}</span>
+              </div>
+              <div class="team-info">
+                <div class="team-name">{member.name}</div>
+                <div class="team-title">{member.title}</div>
+                <p class="team-bio">{member.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="cta-glow"></div>
+      <div class="wrap">
+        <span class="eyebrow reveal" style="justify-content:center;">Work with us</span>
+        <h2 class="display reveal" data-d="1" style="margin-top:22px;">Pick a goal.<br />Deploy a machine.</h2>
+        <p class="lede reveal" data-d="2" style="text-align:center; margin-top:16px;">Tell us the outcome that matters most. We'll show you what a machine looks like against it.</p>
+        <div class="cta-actions reveal" data-d="3">
+          <a href="/#contact" class="btn btn--primary">Book a demo<span class="arrow">→</span></a>
+          <a href="/" class="btn btn--ghost">See the machines</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="/"><span class="mark"></span>Outcome Machines</a>
+        <div class="fcols">
+          <a href="/#machines">The Machines</a>
+          <a href="/#how">Core Loop</a>
+          <a href="/#technology">DatacentrIQ</a>
+          <a href="/#technology">Orgtwins</a>
+          <a href="/#movement">Orgminding</a>
+          <a href="/#movement">Orgminders</a>
+          <a href="/about">About</a>
+          <a href="/#contact">Book a demo</a>
+        </div>
+        <div class="fnote">© {new Date().getFullYear()} Outcome Machines</div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme">◑ Light</button>
+      </div>
+    </footer>
+
+    <script>
+      // scroll reveal
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // nav border on scroll
+      const nav = document.getElementById("nav");
+      const onScroll = () => nav?.classList.toggle("scrolled", window.scrollY > 24);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      // theme toggle
+      const toggle = document.getElementById("theme-toggle");
+      const updateToggle = () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        toggle.textContent = isLight ? "◑ Dark" : "◑ Light";
+      };
+      updateToggle();
+      toggle.addEventListener("click", () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        if (isLight) {
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+          localStorage.removeItem("theme");
+        }
+        updateToggle();
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .about-hero { padding-top: clamp(120px, 18vh, 200px); }
+
+  .about-vision {
+    margin-top: 48px;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .about-vision p {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.75;
+    color: var(--paper-dim);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(24px, 4vw, 48px);
+    margin-top: 56px;
+  }
+
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    background: var(--ink-3);
+  }
+
+  .team-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--signal);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .team-avatar span {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--signal);
+  }
+
+  .team-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+  }
+  .team-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-top: 4px;
+  }
+  .team-bio {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--paper-dim);
+    margin-top: 12px;
+  }
+</style>
