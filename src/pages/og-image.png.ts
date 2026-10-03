@@ -62,7 +62,7 @@ export const GET: APIRoute = async () => {
               },
             },
           },
-          // Middle: noun + definition + example
+          // Middle: noun + definition + operating path
           {
             type: "div",
             props: {
@@ -86,7 +86,7 @@ export const GET: APIRoute = async () => {
                       maxWidth: 980,
                     },
                     children:
-                      "An AI system purpose-built to own a single business outcome — that monitors, explains, recommends, executes, and learns until the number moves.",
+                      "An AI system built around one business outcome — connecting signals, governed decisions, and measured results.",
                   },
                 },
                 {
@@ -100,7 +100,7 @@ export const GET: APIRoute = async () => {
                       maxWidth: 860,
                     },
                     children:
-                      '"We deployed an Outcome Machine for revenue recovery. It paid for itself in six weeks."',
+                      "A business signal → an approved action → a measured result.",
                   },
                 },
               ],

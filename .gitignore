@@ -11,3 +11,6 @@ node_modules/
 .DS_Store
 # logs
 npm-debug.log*
+# Python render cache
+__pycache__/
+*.pyc

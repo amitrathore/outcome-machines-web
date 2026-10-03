@@ -1,63 +1,16 @@
 ---
 import "../styles/global.css";
-
-const machines = [
-  {
-    name: "Revenue Recovery",
-    desc: "Detects revenue leakage across the order-to-cash flow, then recovers it before it compounds.",
-    metric: "$5.4M",
-    label: "recovered / quarter",
-  },
-  {
-    name: "Collections",
-    desc: "Prioritises interventions by likelihood-to-pay and orchestrates the next best action per account.",
-    metric: "+22%",
-    label: "promise-to-pay rate",
-  },
-  {
-    name: "Customer Retention",
-    desc: "Surfaces churn drivers as they emerge and recommends the action that keeps the account.",
-    metric: "−31%",
-    label: "voluntary churn",
-  },
-  {
-    name: "Sales Productivity",
-    desc: "Finds where deals stall and improves conversion by coaching the motion that moves them.",
-    metric: "+18%",
-    label: "win rate",
-  },
-  {
-    name: "Branch Performance",
-    desc: "Optimises distributed operations by learning what the top branches do — and propagating it.",
-    metric: "+14%",
-    label: "throughput / branch",
-  },
-  {
-    name: "Procurement",
-    desc: "Improves sourcing and spend efficiency by reasoning over supplier, price and demand signals.",
-    metric: "−9%",
-    label: "addressable spend",
-  },
-];
+import { machines } from "../data/machines";
 
 const loop = [
-  { n: "01", t: "Monitor", d: "Watches the goal continuously against its living model of the enterprise." },
-  { n: "02", t: "Explain", d: "Reasons about why the metric moved — causal, not correlational." },
-  { n: "03", t: "Recommend", d: "Proposes the next best action, ranked by expected impact." },
-  { n: "04", t: "Execute", d: "Acts through governed, inspectable, approved workflows." },
-  { n: "05", t: "Learn", d: "Measures the outcome and updates itself for the next decision." },
+  { n: "01", t: "Monitor", d: "Watches the goal continuously using the relevant business data and context." },
+  { n: "02", t: "Explain", d: "Investigates likely drivers and shows the evidence behind them." },
+  { n: "03", t: "Recommend", d: "Proposes an action with its evidence, expected effect, and policy constraints." },
+  { n: "04", t: "Approve", d: "Pauses for the accountable owner to approve or reject the proposal." },
+  { n: "05", t: "Execute", d: "Runs the approved action through an inspectable workflow." },
+  { n: "06", t: "Learn", d: "Compares the observed result with the baseline and improves the next decision." },
 ];
 
-const techLayers = [
-  { num: "05", title: "Outcome Machines", role: "Business Applications", desc: "AI systems that continuously improve one business outcome.", product: true },
-  { num: "04", title: "Digital Twins", role: "Enterprise Simulator", desc: "Living digital representations of the enterprise — goals, metrics, processes, causality." },
-  { num: "03", title: "DatacentrIQ", role: "Intelligence Engine", desc: "The Enterprise Intelligence Platform that creates and maintains enterprise understanding." },
-];
-
-const movementLayers = [
-  { num: "01", title: "Outcomeering", role: "Methodology", desc: "The discipline of building organizations that understand, reason, act and learn." },
-  { num: "02", title: "Outcomeers", role: "Community", desc: "The leaders and practitioners operating intelligent, self-aware enterprises." },
-];
 ---
 
 <!doctype html>
@@ -68,9 +21,9 @@ const movementLayers = [
     <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon.svg`} type="image/svg+xml" />
     <script>const t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
     <title>Outcome Machines — Build AI systems that improve your most important goals</title>
-    <meta name="description" content="Not a dashboard. An AI system that owns one outcome — and continuously monitors, explains, recommends, executes and learns until the number moves the way it should." />
+    <meta name="description" content="Outcome Machines connect business signals to governed decisions and measured results. See how a machine investigates, recommends, waits for approval, executes, and learns." />
     <meta property="og:title" content="Outcome Machines" />
-    <meta property="og:description" content="Not a dashboard. An AI system that owns one outcome — and continuously monitors, explains, recommends, executes and learns until the number moves the way it should." />
+    <meta property="og:description" content="Outcome Machines connect business signals to governed decisions and measured results." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://outcomemachines.com" />
     <meta property="og:image" content="https://outcomemachines.com/og-image.png" />
@@ -78,7 +31,7 @@ const movementLayers = [
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Outcome Machines" />
-    <meta name="twitter:description" content="Not a dashboard. An AI system that owns one outcome — and continuously monitors, explains, recommends, executes and learns until the number moves the way it should." />
+    <meta name="twitter:description" content="Outcome Machines connect business signals to governed decisions and measured results." />
     <meta name="twitter:image" content="https://outcomemachines.com/og-image.png" />
     <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -96,7 +49,7 @@ const movementLayers = [
         <a href="#machines">The Machines</a>
         <a href="#how">How it Works</a>
         <a href="#technology">The Technology</a>
-        <a href="#movement">The Movement</a>
+        <a href="#movement">Outcomeering</a>
         <a href="#contact" class="btn btn--primary nav-cta">Book a demo<span class="arrow">→</span></a>
       </div>
     </nav>
@@ -112,18 +65,16 @@ const movementLayers = [
             Build <span class="em">Outcome&nbsp;Machines</span> for your most important business goals.
           </h1>
           <p class="lede reveal" data-d="2">
-            Not another dashboard. Not another report. An Outcome Machine is an AI system
-            that owns one outcome — and continuously monitors, explains, recommends, executes and
-            learns until the number moves the way it should.
+            An Outcome Machine works continuously toward one measurable business goal.
+            It investigates signals, recommends actions with evidence, waits for the right
+            person to approve them, runs approved workflows, and measures what changed.
           </p>
           <div class="hero-actions reveal" data-d="3">
-            <a href="#contact" class="btn btn--primary">Deploy your first machine<span class="arrow">→</span></a>
+            <a href="#contact" class="btn btn--primary">Plan your first machine<span class="arrow">→</span></a>
             <a href="#how" class="btn btn--ghost">See how it works</a>
           </div>
-          <div class="hero-stats reveal" data-d="4">
-            <div class="hstat"><div class="n">$5.4M</div><div class="hstat-l">cash recovered</div></div>
-            <div class="hstat"><div class="n">−31%</div><div class="hstat-l">churn reduced</div></div>
-            <div class="hstat"><div class="n">24/7</div><div class="hstat-l">closing the loop</div></div>
+          <div class="hero-path reveal" data-d="4" aria-label="From business signal to measured result">
+            <span>Business signal</span><span aria-hidden="true">→</span><span>Recommendation</span><span aria-hidden="true">→</span><span>Human approval</span><span aria-hidden="true">→</span><span>Measured result</span>
           </div>
         </div>
 
@@ -143,17 +94,20 @@ const movementLayers = [
             <div class="engine-node" style="--a:0deg;   --delay:0s">
               <div class="dot"></div><div class="nlbl"><span class="nnum">01</span> Monitor</div>
             </div>
-            <div class="engine-node" style="--a:72deg;  --delay:1s">
+            <div class="engine-node" style="--a:60deg;  --delay:1s">
               <div class="dot"></div><div class="nlbl"><span class="nnum">02</span> Explain</div>
             </div>
-            <div class="engine-node" style="--a:144deg; --delay:2s">
+            <div class="engine-node" style="--a:120deg; --delay:2s">
               <div class="dot"></div><div class="nlbl"><span class="nnum">03</span> Recommend</div>
             </div>
-            <div class="engine-node" style="--a:216deg; --delay:3s">
-              <div class="dot"></div><div class="nlbl"><span class="nnum">04</span> Execute</div>
+            <div class="engine-node" style="--a:180deg; --delay:3s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">04</span> Approve</div>
             </div>
-            <div class="engine-node" style="--a:288deg; --delay:4s">
-              <div class="dot"></div><div class="nlbl"><span class="nnum">05</span> Learn</div>
+            <div class="engine-node" style="--a:240deg; --delay:4s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">05</span> Execute</div>
+            </div>
+            <div class="engine-node" style="--a:300deg; --delay:5s">
+              <div class="dot"></div><div class="nlbl"><span class="nnum">06</span> Learn</div>
             </div>
           </div>
         </div>
@@ -197,8 +151,8 @@ const movementLayers = [
       <div class="wrap">
         <div class="shead reveal">
           <span class="eyebrow">The core loop</span>
-          <h2 class="h2">A dashboard shows.<br />An Outcome Machine produces.</h2>
-          <p class="lede">Every Outcome Machine runs the same closed loop — endlessly — against a living model of your enterprise. That loop is the difference between visibility and results.</p>
+          <h2 class="h2">From signal to accountable action.</h2>
+          <p class="lede">The machine works with the relevant business data and context. A person approves consequential actions, and each completed action is measured against the goal.</p>
         </div>
         <div class="loop-steps reveal" data-d="1">
           {loop.map((s) => (
@@ -212,132 +166,122 @@ const movementLayers = [
       </div>
     </section>
 
+    <!-- A WORKED EXAMPLE -->
+    <section class="section section--tight example-section" id="example">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">Illustrative machine cycle</span>
+          <h2 class="h2">A stockout becomes a decision.</h2>
+          <p class="lede">A sample Revenue Recovery cycle shows the information an operator gets before action, and the result the machine would measure afterward. The scenario is illustrative, not a customer result.</p>
+        </div>
+        <div class="demo-video-wrap reveal" data-d="1">
+          <video controls playsinline preload="none" poster="/outcome-machines-demo-poster.png" aria-label="Outcome Machines illustrative revenue recovery walkthrough">
+            <source src="/outcome-machines-demo-full.mp4" type="video/mp4" />
+            Your browser does not support this video.
+          </video>
+          <p>Full 94.5-second illustrative walkthrough · Demo data · <a href="/outcome-machines-demo.mp4">Watch the 32-second cut</a></p>
+        </div>
+        <ol class="example-cycle reveal" data-d="1">
+          <li><span class="example-label">01 · Signal</span><h3>Cover is running low</h3><p>A fast-moving SKU falls below its inventory-cover threshold in a high-demand region.</p></li>
+          <li><span class="example-label">02 · Investigation</span><h3>Find the constraint</h3><p>The machine checks store-level demand, available inventory, replenishment timing, and supplier fill rate.</p></li>
+          <li><span class="example-label">03 · Recommendation</span><h3>Move stock where needed</h3><p>It proposes a transfer from lower-velocity stores, with the expected effect and supporting evidence.</p></li>
+          <li><span class="example-label">04 · Approval</span><h3>Keep an owner in control</h3><p>A merchandising or supply-chain owner reviews the proposal before the transfer workflow starts.</p></li>
+          <li><span class="example-label">05 · Outcome</span><h3>Check what changed</h3><p>Recovered sales and stockout rate are compared with a baseline over the agreed measurement window.</p></li>
+        </ol>
+        <article class="decision-record reveal" data-d="2" aria-labelledby="decision-record-title">
+          <div class="decision-record-heading">
+            <div><span class="example-label">Illustrative decision record</span><h3 id="decision-record-title">Transfer stock to the constrained region</h3></div>
+            <span class="decision-status">Awaiting approval</span>
+          </div>
+          <dl class="decision-record-grid">
+            <div><dt>Signal</dt><dd>Inventory cover is below the agreed threshold for a fast-moving SKU.</dd></div>
+            <div><dt>Evidence to review</dt><dd>Store demand, available stock, replenishment timing, and supplier fill rate.</dd></div>
+            <div><dt>Proposed action</dt><dd>Transfer units from a lower-velocity store to the high-demand region.</dd></div>
+            <div><dt>Policy check</dt><dd>Keep the sending store above its minimum cover; confirm the transfer is permitted.</dd></div>
+            <div><dt>Decision owner</dt><dd>A merchandising or supply-chain owner can approve, reject, or request a revision.</dd></div>
+            <div><dt>Measurement plan</dt><dd>Compare stockout rate and recovered sales with a baseline after the transfer. The record stays open until an observed result is available.</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
     <!-- MACHINES -->
     <section class="section" id="machines">
       <div class="wrap">
         <div class="shead reveal">
           <span class="eyebrow">The catalog</span>
           <h2 class="h2">One machine per outcome.</h2>
-          <p class="lede">Each Outcome Machine is purpose-built for a single goal and deployed against an AI twin of your own organization. Start with one. Add more as the results compound.</p>
+          <p class="lede">Each machine focuses on one goal and the decisions that move it. These are example operating models; the signals, policies, and measures are configured for your organization.</p>
         </div>
         <div class="machines">
           {machines.map((m, i) => (
             <article class="machine reveal" data-d={(i % 3) + 1}>
               <div class="mhead">
                 <span class="midx">OM-{String(i + 1).padStart(2, "0")}</span>
-                <span class="status"><span class="led"></span> Running</span>
+                <span class="status">{m.detail ? "Explore model" : "Example model"}</span>
               </div>
               <h3>{m.name}</h3>
-              <p>{m.desc}</p>
-              <div class="metric">
-                <span class="mv">{m.metric}</span>
-                <span class="ml">{m.label}</span>
+              <p>{m.description}</p>
+              <div class="machine-details">
+                <div><span>Goal</span><strong>{m.goal}</strong></div>
+                <div><span>Signal</span><strong>{m.signal}</strong></div>
+                <div><span>Decision</span><strong>{m.decision}</strong></div>
+                <div><span>Measure</span><strong>{m.kpi}</strong></div>
               </div>
+              {m.detail && <a class="machine-link" href={`/machines/${m.slug}`}>See how it works <span aria-hidden="true">→</span></a>}
             </article>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- DASHBOARD vs MACHINE -->
-    <section class="section section--tight">
+    <!-- CONTROL AND MEASUREMENT -->
+    <section class="section section--tight" id="control">
       <div class="wrap">
         <div class="shead reveal">
-          <span class="eyebrow">Why not just a dashboard</span>
-          <h2 class="h2">Seeing is not improving.</h2>
+          <span class="eyebrow">Control and measurement</span>
+          <h2 class="h2">Every action has a reason, an owner, and a result.</h2>
+          <p class="lede">An Outcome Machine should make the path from evidence to action inspectable. Teams set the policy and approve consequential decisions; the machine records what happened next.</p>
         </div>
-        <div class="versus reveal" data-d="1">
-          <div class="versus-card">
-            <span class="vk">BI Dashboard</span>
-            <h3>Shows</h3>
-            <ul class="versus-list">
-              <li>→ <b>Static reports</b></li>
-              <li>→ <b>Retrospective views</b></li>
-              <li>→ <b>Manual interpretation</b></li>
-              <li>→ <b>Data, not decisions</b></li>
-            </ul>
-          </div>
-          <div class="versus-mid">
-            EVOLVES&nbsp;INTO
-            <span class="ar">→</span>
-          </div>
-          <div class="versus-card active">
-            <span class="vk">Outcome Machine</span>
-            <h3>Produces</h3>
-            <ul class="versus-list">
-              <li>→ <b>Action</b></li>
-              <li>→ <b>Improvement</b></li>
-              <li>→ <b>Measurable results</b></li>
-              <li>→ <b>Continuous learning</b></li>
-            </ul>
-          </div>
+        <div class="control-grid reveal" data-d="1">
+          <article><span class="example-label">01 · Evidence</span><h3>Show the reasoning</h3><p>Each recommendation identifies the signal, supporting data, and assumptions behind its expected effect.</p></article>
+          <article><span class="example-label">02 · Approval</span><h3>Name the decision owner</h3><p>Policy names the human approver, sets the action boundaries, and determines which workflow can run after approval.</p></article>
+          <article><span class="example-label">03 · Outcome</span><h3>Measure against a baseline</h3><p>The team sees the action taken, the observed result, and where the model needs correction.</p></article>
         </div>
       </div>
     </section>
 
     <!-- TECHNOLOGY -->
-    <section class="section" id="technology">
+    <section class="section section--tight" id="technology">
       <div class="wrap">
         <div class="shead reveal">
           <span class="eyebrow">Under the hood</span>
-          <h2 class="h2">Powered by DatacentrIQ.<br />Built on Digital Twins.</h2>
-          <p class="lede">Outcome Machines are the visible layer of a coherent ecosystem. Each layer has a distinct role — and the leverage compounds as they stack.</p>
+          <h2 class="h2">The goal shapes the technology.</h2>
+          <p class="lede">Each Outcome Machine brings together the data, reasoning, workflows, and measurement its goal requires. The mix depends on your organization and the systems you already use.</p>
         </div>
-        <div class="stack">
-          {techLayers.map((l, i) => (
-            <div class={`layer reveal${l.product ? " is-product" : ""}`} data-d={(i % 3) + 1}>
-              <div>
-                <div class="ltitle">{l.title}</div>
-                <div class="lrole">{l.role}</div>
-              </div>
-              <div class="ldesc">{l.desc}</div>
-              <div class="lnum">{l.num}</div>
-            </div>
-          ))}
-        </div>
-
-        <div class="flow reveal">
-          <p class="flow-line">
-            <span class="b">DatacentrIQ</span> <span class="dim">creates and maintains</span> <span class="b">Digital Twins</span>. <span class="dim">Then,</span> <span class="b">Outcome Machines</span> <span class="dim">operate on Digital Twins — and continuously improve your business outcomes.</span>
-          </p>
+        <div class="technology-examples reveal" data-d="1">
+          <span>Partner technologies</span>
+          <a href="https://datacentriq.co/">DatacentrIQ <span aria-hidden="true">↗</span></a>
+          <a href="https://opentangle.ai/">Opentangle.ai <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
-    <!-- MOVEMENT -->
-    <section class="section" id="movement">
+    <!-- OUTCOMEERING -->
+    <section class="section section--tight" id="movement">
       <div class="wrap">
         <div class="shead reveal">
-          <span class="eyebrow">The movement</span>
-          <h2 class="h2">Enterprises are data-rich,<br />self-awareness poor.</h2>
-          <p class="lede">Outcomeering is the discipline of building organizations that continuously understand themselves, reason about performance, take action, and learn from outcomes. It's the intellectual foundation beneath every Outcome Machine.</p>
+          <span class="eyebrow">The book and the discipline</span>
+          <h2 class="h2">Outcomeering is how organizations learn to improve.</h2>
+          <p class="lede">Outcomeering is the discipline of understanding performance, making accountable decisions, acting on them, and learning from the results. It is the thinking behind Outcome Machines and the subject of a book.</p>
         </div>
-        <div class="stack">
-          {movementLayers.map((l, i) => (
-            <div class={`layer reveal`} data-d={(i % 2) + 1}>
-              <div>
-                <div class="ltitle">{l.title}</div>
-                <div class="lrole">{l.role}</div>
-              </div>
-              <div class="ldesc">{l.desc}</div>
-              <div class="lnum">{l.num}</div>
-            </div>
-          ))}
-        </div>
-        <div class="think reveal" data-d="2" style="margin-top:48px;">
+        <div class="outcomeering-feature reveal" data-d="1">
           <div class="think-card">
             <div class="glow2"></div>
-            <span class="booktag">The book · The movement</span>
+            <span class="booktag">The book · The discipline</span>
             <div class="booktitle">Outcomeering</div>
             <div class="booksub">How intelligent enterprises learn, decide and improve.</div>
-            <span class="coming-soon">Coming soon</span>
-          </div>
-          <div class="think-card">
-            <div class="glow2"></div>
-            <span class="booktag">The community · The movement</span>
-            <div class="booktitle">Outcomeers</div>
-            <div class="booksub">A network of leaders building AI-aware organizations.</div>
-            <span class="coming-soon">Coming soon</span>
+            <a class="feature-link" href="https://outcomeering.com/">Explore Outcomeering <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -348,8 +292,8 @@ const movementLayers = [
       <div class="cta-glow"></div>
       <div class="wrap">
         <span class="eyebrow reveal" style="justify-content:center;">Start with one outcome</span>
-        <h2 class="display reveal" data-d="1" style="margin-top:22px;">Pick a goal.<br />Deploy a machine.</h2>
-        <p class="lede reveal" data-d="2">Tell us the business outcome that matters most this quarter. We'll show you the Outcome Machine that moves it.</p>
+        <h2 class="display reveal" data-d="1" style="margin-top:22px;">Pick a goal.<br />Plan a machine.</h2>
+        <p class="lede reveal" data-d="2">Bring one business outcome. In the working session, we'll map the metric, the decisions that affect it, the data those decisions need, and a practical first deployment path.</p>
         <div class="tidycal-wrap reveal" data-d="3">
           <div class="tidycal-embed" data-path="amitrathore/30-min-to-an-outcome-machine"></div>
         </div>
@@ -363,10 +307,8 @@ const movementLayers = [
         <div class="fcols">
           <a href="#machines">The Machines</a>
           <a href="#how">Core Loop</a>
-          <a href="#technology">DatacentrIQ</a>
-          <a href="#technology">Digital Twins</a>
+          <a href="#technology">The Technology</a>
           <a href="#movement">Outcomeering</a>
-          <a href="#movement">Outcomeers</a>
           <a href="/about">About</a>
           <a href="#contact">Book a demo</a>
         </div>

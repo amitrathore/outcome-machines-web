@@ -1,0 +1,145 @@
+---
+import "../../styles/global.css";
+import { machines, type Machine } from "../../data/machines";
+
+export function getStaticPaths() {
+  return machines.filter((machine) => machine.detail).map((machine) => ({
+    params: { slug: machine.slug },
+    props: { machine },
+  }));
+}
+
+const { machine } = Astro.props as { machine: Machine };
+const detail = machine.detail!;
+const pageUrl = `https://outcomemachines.com/machines/${machine.slug}`;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>const t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+    <title>{machine.name} Outcome Machine — Outcome Machines</title>
+    <meta name="description" content={`${machine.goal} Explore the signals, decisions, controls, and measurements in a ${machine.name} Outcome Machine.`} />
+    <meta property="og:title" content={`${machine.name} Outcome Machine — Outcome Machines`} />
+    <meta property="og:description" content={machine.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content="https://outcomemachines.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <a class="brand" href="/"><span class="mark"></span>Outcome Machines</a>
+      <div class="nav-links">
+        <a href="/#machines">The Machines</a>
+        <a href="/#how">How it Works</a>
+        <a href="/#technology">The Technology</a>
+        <a href="/about">About</a>
+        <a href="/#contact" class="btn btn--primary nav-cta">Book a demo<span class="arrow">→</span></a>
+      </div>
+    </nav>
+
+    <main>
+      <header class="section machine-page-hero">
+        <div class="wrap">
+          <a class="back-link" href="/#machines">← All machines</a>
+          <span class="eyebrow">Example operating model</span>
+          <h1 class="display">{machine.name}</h1>
+          <p class="lede">{machine.goal} {detail.context}</p>
+          <div class="machine-hero-facts">
+            <div><span>Primary measure</span><strong>{machine.kpi}</strong></div>
+            <div><span>Example signal</span><strong>{machine.signal}</strong></div>
+            <div><span>Possible decision</span><strong>{machine.decision}</strong></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section section--tight">
+        <div class="wrap">
+          <div class="shead">
+            <span class="eyebrow">The operating path</span>
+            <h2 class="h2">From context to action.</h2>
+            <p class="lede">The details below describe a possible configuration. Thresholds, access, policies, and measurement windows are set with your team.</p>
+          </div>
+          <div class="machine-page-grid">
+            <article class="detail-panel">
+              <span class="example-label">01 · Understand</span>
+              <h3>Connect the relevant context</h3>
+              <ul>{detail.inputs.map((item) => <li>{item}</li>)}</ul>
+            </article>
+            <article class="detail-panel">
+              <span class="example-label">02 · Monitor</span>
+              <h3>Find signals worth attention</h3>
+              <ul>{detail.signals.map((item) => <li>{item}</li>)}</ul>
+            </article>
+            <article class="detail-panel">
+              <span class="example-label">03 · Decide</span>
+              <h3>Recommend a next action</h3>
+              <ul>{detail.decisions.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight machine-accountability">
+        <div class="wrap">
+          <div class="shead">
+            <span class="eyebrow">Governed execution</span>
+          <h2 class="h2">People stay accountable for the decision.</h2>
+          <p class="lede">These are example controls to configure with your team. Each proposal should carry its evidence, policy check, approver, decision, and outcome plan in an inspectable record.</p>
+        </div>
+        <div class="accountability-grid">
+          <article><span class="example-label">Approval owner</span><p>{detail.owner}</p></article>
+          <article><span class="example-label">Example policy boundary</span><p>{detail.guardrail}</p></article>
+          <article><span class="example-label">If rejected</span><p>{detail.ifRejected}</p></article>
+          <article><span class="example-label">Outcome measurement</span><p>{detail.measurement}</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="cta-glow"></div>
+        <div class="wrap">
+          <span class="eyebrow" style="justify-content:center;">Start with one outcome</span>
+          <h2 class="display" style="margin-top:22px;">Make this model yours.</h2>
+          <p class="lede">Bring your goal and operating context. We'll map the measure, key decisions, data, and a first deployment path together.</p>
+          <div class="cta-actions"><a class="btn btn--primary" href="/#contact">Book a working session<span class="arrow">→</span></a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="/"><span class="mark"></span>Outcome Machines</a>
+        <div class="fcols"><a href="/#machines">The Machines</a><a href="/#how">Core Loop</a><a href="/#technology">The Technology</a><a href="/about">About</a><a href="/#contact">Book a demo</a></div>
+        <div class="fnote">© {new Date().getFullYear()} Outcome Machines</div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme">◑ Light</button>
+      </div>
+    </footer>
+
+    <script>
+      const nav = document.getElementById("nav");
+      const onScroll = () => nav?.classList.toggle("scrolled", window.scrollY > 24);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      const toggle = document.getElementById("theme-toggle");
+      const updateToggle = () => {
+        if (toggle) toggle.textContent = document.documentElement.getAttribute("data-theme") === "light" ? "◑ Dark" : "◑ Light";
+      };
+      updateToggle();
+      toggle?.addEventListener("click", () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        document.documentElement.setAttribute("data-theme", isLight ? "dark" : "light");
+        if (isLight) localStorage.setItem("theme", "dark"); else localStorage.removeItem("theme");
+        updateToggle();
+      });
+    </script>
+  </body>
+</html>

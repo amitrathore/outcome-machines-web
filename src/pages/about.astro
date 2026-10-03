@@ -6,13 +6,13 @@ const team = [
     name: "Amit Rathore",
     title: "Cofounder & CEO",
     initials: "AR",
-    bio: "Amit has spent two decades building data-intensive systems and AI platforms. He founded Outcome Machines on the belief that enterprises deserve AI that owns results — not just surfaces them.",
+    bio: "Amit has spent two decades building data-intensive systems and AI platforms. He founded Outcome Machines on the belief that enterprises deserve AI that helps teams improve results — not just surface them.",
   },
   {
     name: "Manjul Pathak",
     title: "Cofounder & CTO",
     initials: "MP",
-    bio: "Manjul architects the intelligence layer that makes Outcome Machines possible — from the digital twin data model to the causal reasoning engines that power every recommendation.",
+    bio: "Manjul architects the intelligence behind Outcome Machines — connecting business data, decision context, and the reasoning that supports each recommendation.",
   },
 ];
 ---
@@ -25,9 +25,9 @@ const team = [
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script>const t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
     <title>About — Outcome Machines</title>
-    <meta name="description" content="Meet the team building Outcome Machines — AI systems that own business outcomes and continuously improve them." />
+    <meta name="description" content="Meet the team building Outcome Machines — AI systems that help teams make governed decisions and measure their effect on business outcomes." />
     <meta property="og:title" content="About — Outcome Machines" />
-    <meta property="og:description" content="Meet the team building Outcome Machines — AI systems that own business outcomes and continuously improve them." />
+    <meta property="og:description" content="Meet the team building Outcome Machines — AI systems that help teams make governed decisions and measure their effect on business outcomes." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://outcomemachines.com/about" />
     <meta property="og:image" content="https://outcomemachines.com/og-image.png" />
@@ -46,7 +46,7 @@ const team = [
         <a href="/#machines">The Machines</a>
         <a href="/#how">How it Works</a>
         <a href="/#technology">The Technology</a>
-        <a href="/#movement">The Movement</a>
+        <a href="/#movement">Outcomeering</a>
         <a href="/#contact" class="btn btn--primary nav-cta">Book a demo<span class="arrow">→</span></a>
       </div>
     </nav>
@@ -57,11 +57,11 @@ const team = [
         <div class="shead reveal">
           <span class="eyebrow">About us</span>
           <h1 class="h2">We believe the future of business is outcomes, not software.</h1>
-          <p class="lede">Enterprises have spent decades buying tools that show them what happened. We're building the systems that change what happens next — AI that owns a goal, works it continuously, and improves with every cycle.</p>
+          <p class="lede">Enterprises have spent decades buying tools that show them what happened. We're building systems that help teams act on what they learn — AI that works continuously toward a goal, with people accountable for consequential decisions.</p>
         </div>
         <div class="about-vision reveal" data-d="2">
-          <p>Outcome Machines was founded on a simple conviction: that an enterprise should be able to point at its most important goal, deploy an AI system against it, and watch that number move. Not a report. Not an alert. A machine that works.</p>
-          <p>We call this Outcomeering — the discipline of building organizations that understand themselves, reason about performance, act on that reasoning, and learn from what happens. Every Outcome Machine we build is an expression of that discipline, made concrete.</p>
+          <p>Outcome Machines was founded on a simple conviction: an enterprise should be able to name an important goal, investigate what moves it, take governed action, and measure what changed. A machine helps teams carry that work forward.</p>
+          <p>We call this Outcomeering — the discipline of building organizations that understand their performance, make accountable decisions, act, and learn from the results. It is also the subject of a book. <a href="https://outcomeering.com/">Explore Outcomeering ↗</a></p>
         </div>
       </div>
     </section>
@@ -95,8 +95,8 @@ const team = [
       <div class="cta-glow"></div>
       <div class="wrap">
         <span class="eyebrow reveal" style="justify-content:center;">Work with us</span>
-        <h2 class="display reveal" data-d="1" style="margin-top:22px;">Pick a goal.<br />Deploy a machine.</h2>
-        <p class="lede reveal" data-d="2" style="text-align:center; margin-top:16px;">Tell us the outcome that matters most. We'll show you what a machine looks like against it.</p>
+        <h2 class="display reveal" data-d="1" style="margin-top:22px;">Pick a goal.<br />Plan a machine.</h2>
+        <p class="lede reveal" data-d="2" style="text-align:center; margin-top:16px;">Tell us the outcome that matters most. We'll map the decisions, data, and controls a first machine would need.</p>
         <div class="cta-actions reveal" data-d="3">
           <a href="/#contact" class="btn btn--primary">Book a demo<span class="arrow">→</span></a>
           <a href="/" class="btn btn--ghost">See the machines</a>
@@ -111,10 +111,8 @@ const team = [
         <div class="fcols">
           <a href="/#machines">The Machines</a>
           <a href="/#how">Core Loop</a>
-          <a href="/#technology">DatacentrIQ</a>
-          <a href="/#technology">Digital Twins</a>
+          <a href="/#technology">The Technology</a>
           <a href="/#movement">Outcomeering</a>
-          <a href="/#movement">Outcomeers</a>
           <a href="/about">About</a>
           <a href="/#contact">Book a demo</a>
         </div>
@@ -182,6 +180,7 @@ const team = [
     line-height: 1.75;
     color: var(--paper-dim);
   }
+  .about-vision a { color: var(--signal); text-decoration: underline; text-underline-offset: 4px; }
 
   .team-grid {
     display: grid;
