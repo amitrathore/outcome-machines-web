@@ -1,6 +1,6 @@
 ---
 title: "What Is Outcome Intelligence?"
-description: "A working definition of Outcome Intelligence: the ability to connect a business goal to evidence, governed action, and measured learning."
+description: "Outcome Intelligence connects a shared model of the business to governed decisions and measured results, so every cycle can improve the next."
 published: 2026-10-03
 order: 1
 readTime: "4 min read"
@@ -9,7 +9,7 @@ author: "Amit Rathore"
 
 Organizations are rich in signals and poor in closed loops. They can see revenue, churn, capacity, service levels, and dozens of other measures. But when a number moves, the path from observation to a responsible decision is still mostly manual. Someone must ask what changed, investigate why, decide what to do, coordinate the work, and later check whether it helped.
 
-**Outcome Intelligence is the ability to carry that entire chain forward around a specific business goal.** It combines the relevant data, the reasoning needed to interpret it, a recommendation that can be examined, a governed path to action, and a way to measure the result. The goal is not simply a better answer. It is a better decision process that learns from what happens next.
+**Outcome Intelligence is the ability to carry that entire chain forward around a specific business goal.** It combines a shared understanding of the business, the reasoning needed to interpret a signal, a recommendation that can be examined, a governed path to action, and a way to measure the result. Each result should inform the next cycle of observation and decision.
 
 ## Start with the outcome, not the model
 
@@ -20,6 +20,8 @@ An Outcome Intelligence system needs those answers. A precise goal gives it a bo
 For example, a team trying to reduce customer onboarding delays might define an outcome as the share of new accounts reaching first value within 30 days. The system could monitor the path to first value, identify where a cohort is getting stuck, and propose a specific intervention. That proposal is useful only if it also explains the evidence, names the tradeoffs, and reaches the person authorized to approve it.
 
 ## Intelligence needs a decision loop
+
+The loop needs a foundation. A unified data layer brings relevant signals into reach; an ontology defines the business concepts and relationships behind them. When “customer,” “account,” “recovery,” or “first value” mean different things in different systems, a recommendation can be fast and still be wrong. Shared definitions help people and agents investigate the same operating reality. The [architecture behind the loop](/insights/the-data-layer-that-makes-an-organization-learn) deserves as much attention as the model making the recommendation.
 
 I think of the loop in six moves:
 
