@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from "astro:content";
+import InsightsLayout from "../../layouts/InsightsLayout.astro";
+
+export async function getStaticPaths() {
+  const articles = (await getCollection("insights")).sort((a, b) => a.data.order - b.data.order);
+  return articles.map((article, index) => ({
+    params: { slug: article.id },
+    props: { article, previous: articles[index - 1] ?? null, next: articles[index + 1] ?? null },
+  }));
+}
+
+const { article, previous, next } = Astro.props;
+const { Content } = await render(article);
+const published = article.data.published.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+---
+
+<InsightsLayout
+  title={article.data.title}
+  description={article.data.description}
+  canonical={`/insights/${article.id}`}
+  article={{ published: article.data.published, author: article.data.author }}
+>
+  <article>
+    <header class="insight-article-hero">
+      <div class="wrap insight-article-wrap">
+        <a class="insight-back" href="/insights">← All Insights</a>
+        <span class="eyebrow">Outcome Intelligence · Part 0{article.data.order}</span>
+        <h1>{article.data.title}</h1>
+        <p class="lede">{article.data.description}</p>
+        <div class="insight-article-meta"><span class="insights-author-mark">AR</span><span><strong>{article.data.author}</strong><br />{published} · {article.data.readTime}</span></div>
+      </div>
+    </header>
+    <div class="wrap insight-article-wrap">
+      <div class="insight-prose"><Content /></div>
+      <div class="insight-author-box"><span class="insights-author-mark">AR</span><div><strong>About the author</strong><p>Amit Rathore is Cofounder and CEO of Outcome Machines. He writes about the systems and decisions that help organizations improve measurable results.</p><a href="/about">More about Outcome Machines →</a></div></div>
+      <nav class="insight-pager" aria-label="More Insights">
+        {previous ? <a href={`/insights/${previous.id}`}><span>← Previous in series</span><strong>{previous.data.title}</strong></a> : <span />}
+        {next ? <a href={`/insights/${next.id}`}><span>Next in series →</span><strong>{next.data.title}</strong></a> : <a href="/insights"><span>Explore more</span><strong>All Insights →</strong></a>}
+      </nav>
+    </div>
+  </article>
+</InsightsLayout>

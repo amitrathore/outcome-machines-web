@@ -1,0 +1,75 @@
+---
+import { getCollection } from "astro:content";
+import InsightsLayout from "../../layouts/InsightsLayout.astro";
+
+const articles = (await getCollection("insights")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<InsightsLayout
+  title="Insights on Outcome Intelligence"
+  description="Ideas on Outcome Intelligence: connecting business signals to accountable decisions, governed action, and measured results. Articles by Amit Rathore."
+  canonical="/insights"
+>
+  <header class="insights-hero">
+    <div class="wrap insights-hero-grid">
+      <div class="insights-hero-copy">
+        <span class="eyebrow">Outcome Machines / Insights</span>
+        <h1 class="display">Intelligence that <em>answers to outcomes.</em></h1>
+        <p class="lede">Ideas on building systems that turn business signals into accountable decisions, governed action, and measurable learning.</p>
+        <a class="insights-text-link" href="#series-title">Explore the series <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="insights-hero-art" role="img" aria-label="A circular path connects signal, decision, action, and outcome">
+        <div class="insights-orbit insights-orbit-outer"></div>
+        <div class="insights-orbit insights-orbit-inner"></div>
+        <div class="insights-orbit-core"><span>Outcome<br />Intelligence</span></div>
+        <span class="orbit-label orbit-label-one">Signal</span>
+        <span class="orbit-label orbit-label-two">Decision</span>
+        <span class="orbit-label orbit-label-three">Action</span>
+        <span class="orbit-label orbit-label-four">Outcome</span>
+        <span class="orbit-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="insights-thesis">
+    <div class="wrap insights-thesis-grid">
+      <span class="eyebrow">The premise</span>
+      <p>More data and faster automation do not guarantee better decisions. Outcome Intelligence closes the loop: <strong>what changed, what should we do, who approves it, and did it work?</strong></p>
+    </div>
+  </section>
+
+  <section class="section section--tight insights-section" aria-labelledby="series-title">
+    <div class="wrap">
+      <div class="insights-section-head"><div><span class="eyebrow">Current thinking</span><h2 class="h2" id="series-title">A field guide to Outcome Intelligence.</h2></div></div>
+      <a class="insight-featured" href={`/insights/${articles[0].id}`}>
+        <div class="insight-featured-art" aria-hidden="true"><span class="feature-art-number">001</span><span class="feature-art-arc"></span><span class="feature-art-dot"></span><span class="feature-art-word">From signal<br />to outcome ↗</span></div>
+        <div class="insight-featured-copy">
+          <div class="insight-kicker">Founding essay · {articles[0].data.readTime}</div>
+          <h3>{articles[0].data.title}</h3>
+          <p>{articles[0].data.description}</p>
+          <div class="insight-byline">Amit Rathore · {articles[0].data.published.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}</div>
+          <span class="insights-text-link">Read the essay <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+      <div class="insight-more">
+        <div class="insight-more-heading"><span class="eyebrow">Continue the series</span><h3>Where the loop leads.</h3></div>
+        <div class="insight-more-list">
+          {articles.slice(1).map((article) => (
+            <a class="insight-row" href={`/insights/${article.id}`}>
+              <span class="insight-row-number">0{article.data.order}</span>
+              <div><h4>{article.data.title}</h4><p>{article.data.description}</p><span class="insight-row-meta">Amit Rathore · {article.data.readTime}</span></div>
+              <span class="insight-row-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-endcap">
+    <div class="wrap insights-endcap-inner">
+      <div><span class="eyebrow">Put the ideas to work</span><h2>Start with one outcome.</h2><p>Map the decisions and measurements that move a goal your team owns.</p></div>
+      <a href="/#contact" class="btn btn--primary">Plan your first machine <span class="arrow">→</span></a>
+    </div>
+  </section>
+</InsightsLayout>

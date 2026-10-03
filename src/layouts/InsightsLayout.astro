@@ -1,0 +1,102 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  article?: {
+    published: Date;
+    author: string;
+  };
+}
+
+const { title, description, canonical, article } = Astro.props;
+const url = new URL(canonical, "https://outcomemachines.com").toString();
+const fullTitle = `${title} — Outcome Machines`;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>const t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={article ? "article" : "website"} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content="https://outcomemachines.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {article && <meta property="article:published_time" content={article.published.toISOString()} />}
+    {article && <meta property="article:author" content={article.author} />}
+    {article && <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      datePublished: article.published.toISOString().slice(0, 10),
+      author: { "@type": "Person", name: article.author },
+      publisher: { "@type": "Organization", name: "Outcome Machines" },
+      mainEntityOfPage: url,
+      image: "https://outcomemachines.com/og-image.png",
+    })} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a class="brand" href="/"><span class="mark"></span>Outcome Machines</a>
+      <div class="nav-links">
+        <a href="/#machines">The Machines</a>
+        <a href="/#how">How it Works</a>
+        <a href="/#technology">The Technology</a>
+        <a href="/insights" aria-current={canonical === "/insights" ? "page" : undefined}>Insights</a>
+        <a href="/#contact" class="btn btn--primary nav-cta">Book a demo<span class="arrow">→</span></a>
+      </div>
+    </nav>
+
+    <main><slot /></main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="/"><span class="mark"></span>Outcome Machines</a>
+        <div class="fcols">
+          <a href="/#machines">The Machines</a>
+          <a href="/#how">Core Loop</a>
+          <a href="/#technology">The Technology</a>
+          <a href="/#movement">Outcomeering</a>
+          <a href="/insights">Insights</a>
+          <a href="/about">About</a>
+          <a href="/#contact">Book a demo</a>
+        </div>
+        <div class="fnote">© {new Date().getFullYear()} Outcome Machines</div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme">◑ Light</button>
+      </div>
+    </footer>
+    <script>
+      const nav = document.getElementById("nav");
+      const onScroll = () => nav?.classList.toggle("scrolled", window.scrollY > 24);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      const toggle = document.getElementById("theme-toggle");
+      const updateToggle = () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        if (toggle) toggle.textContent = isLight ? "◑ Dark" : "◑ Light";
+      };
+      updateToggle();
+      toggle?.addEventListener("click", () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        document.documentElement.setAttribute("data-theme", isLight ? "dark" : "light");
+        if (isLight) localStorage.setItem("theme", "dark");
+        else localStorage.removeItem("theme");
+        updateToggle();
+      });
+    </script>
+  </body>
+</html>
