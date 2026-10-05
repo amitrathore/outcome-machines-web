@@ -47,7 +47,7 @@ const articles = (await getCollection("insights")).sort((a, b) => a.data.order -
           <div class="insight-kicker">Founding essay · {articles[0].data.readTime}</div>
           <h3>{articles[0].data.title}</h3>
           <p>{articles[0].data.description}</p>
-          <div class="insight-byline">Amit Rathore · {articles[0].data.published.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}</div>
+          <div class="insight-byline">{articles[0].data.author} · <time datetime={articles[0].data.published.toISOString().slice(0, 10)}>{articles[0].data.published.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}</time></div>
           <span class="insights-text-link">Read the essay <span aria-hidden="true">↗</span></span>
         </div>
       </a>
@@ -57,7 +57,7 @@ const articles = (await getCollection("insights")).sort((a, b) => a.data.order -
           {articles.slice(1).map((article) => (
             <a class="insight-row" href={`/insights/${article.id}`}>
               <span class="insight-row-number">0{article.data.order}</span>
-              <div><h4>{article.data.title}</h4><p>{article.data.description}</p><span class="insight-row-meta">Amit Rathore · {article.data.readTime}</span></div>
+              <div><h4>{article.data.title}</h4><p>{article.data.description}</p><span class="insight-row-meta">{article.data.author} · <time datetime={article.data.published.toISOString().slice(0, 10)}>{article.data.published.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}</time> · {article.data.readTime}</span></div>
               <span class="insight-row-arrow" aria-hidden="true">↗</span>
             </a>
           ))}

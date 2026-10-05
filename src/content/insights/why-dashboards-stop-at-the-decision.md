@@ -1,7 +1,7 @@
 ---
 title: "Why Dashboards Stop at the Decision"
 description: "Dashboards make change visible. Outcome Intelligence helps teams turn that signal into an accountable action and learn from the result."
-published: 2026-10-03
+published: 2026-09-14
 order: 2
 readTime: "4 min read"
 author: "Amit Rathore"

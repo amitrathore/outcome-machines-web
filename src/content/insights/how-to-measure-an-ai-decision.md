@@ -1,7 +1,7 @@
 ---
 title: "How to Measure an AI Decision"
 description: "A practical framework for evaluating AI recommendations through baselines, expected effects, observed results, and honest uncertainty."
-published: 2026-10-03
+published: 2026-09-21
 order: 3
 readTime: "4 min read"
 author: "Amit Rathore"

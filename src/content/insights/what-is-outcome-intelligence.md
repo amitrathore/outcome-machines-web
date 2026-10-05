@@ -1,7 +1,7 @@
 ---
 title: "What Is Outcome Intelligence?"
 description: "Outcome Intelligence connects a shared model of the business to governed decisions and measured results, so every cycle can improve the next."
-published: 2026-10-03
+published: 2026-09-07
 order: 1
 readTime: "4 min read"
 author: "Amit Rathore"
