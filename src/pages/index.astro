@@ -2,6 +2,15 @@
 import "../styles/global.css";
 import { machines } from "../data/machines";
 
+const principles = [
+  { n: "01", t: "Start from the number", d: "Name one business goal and the KPI that measures it before choosing any technology." },
+  { n: "02", t: "Agree the baseline first", d: "Decide how success will be measured before anything is deployed." },
+  { n: "03", t: "Map what moves it", d: "Understand the activities, decisions and causal drivers behind the KPI." },
+  { n: "04", t: "Name an accountable owner", d: "Every consequential decision has a person who approves it." },
+  { n: "05", t: "Measure incremental value", d: "Credit only the improvement over baseline that the actions produced." },
+  { n: "06", t: "Learn from every result", d: "Feed each measured outcome back into the next decision." },
+];
+
 const loop = [
   { n: "01", t: "Monitor", d: "Watches the goal continuously using the relevant business data and context." },
   { n: "02", t: "Explain", d: "Investigates likely drivers and shows the evidence behind them." },
@@ -148,13 +157,33 @@ const loop = [
       </div>
     </section>
 
+    <!-- OUTCOMEERING PRINCIPLES -->
+    <section class="section section--tight" id="principles">
+      <div class="wrap">
+        <div class="shead reveal">
+          <span class="eyebrow">The method</span>
+          <h2 class="h2">Outcomeering: run AI like a P&amp;L, not a pilot.</h2>
+          <p class="lede">Outcomeering is the method behind every Outcome Machine — a discipline for turning a business goal into accountable decisions and measured results. Six principles set it apart from point solutions.</p>
+        </div>
+        <div class="loop-steps principles reveal" data-d="1">
+          {principles.map((s) => (
+            <div class="loop-step">
+              <span class="sn">{s.n}</span>
+              <h4>{s.t}</h4>
+              <p>{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS / CORE LOOP -->
     <section class="section" id="how">
       <div class="wrap">
         <div class="shead reveal">
-          <span class="eyebrow">The core loop</span>
+          <span class="eyebrow">The Outcomeering loop</span>
           <h2 class="h2">From signal to accountable action.</h2>
-          <p class="lede">The machine works with the relevant business data and context. A person approves consequential actions, and each completed action is measured against the goal.</p>
+          <p class="lede">This is Outcomeering in practice. The machine works with the relevant business data and context, a person approves consequential actions, and each completed action is measured against the baseline.</p>
         </div>
         <div class="loop-steps reveal" data-d="1">
           {loop.map((s) => (
@@ -268,17 +297,17 @@ const loop = [
     <section class="section section--tight" id="movement">
       <div class="wrap">
         <div class="shead reveal">
-          <span class="eyebrow">The book and the discipline</span>
-          <h2 class="h2">Outcomeering is how organizations learn to improve.</h2>
-          <p class="lede">Outcomeering is the discipline of understanding performance, making accountable decisions, acting on them, and learning from the results. It is the thinking behind Outcome Machines and the subject of a book.</p>
+          <span class="eyebrow">The book</span>
+          <h2 class="h2">The book behind the method.</h2>
+          <p class="lede">Outcomeering sets out the method behind every Outcome Machine — written for operators and P&amp;L leaders who need AI to deliver results they can measure, not more pilots.</p>
         </div>
         <div class="outcomeering-feature reveal" data-d="1">
           <div class="think-card">
             <div class="glow2"></div>
-            <span class="booktag">The book · The discipline</span>
+            <span class="booktag">The book · The method</span>
             <div class="booktitle">Outcomeering</div>
             <div class="booksub">How intelligent enterprises learn, decide and improve.</div>
-            <a class="feature-link" href="https://outcomeering.com/">Explore Outcomeering <span aria-hidden="true">↗</span></a>
+            <a class="feature-link" href="#principles">Read the six principles <span aria-hidden="true">↑</span></a>
           </div>
         </div>
       </div>
@@ -307,7 +336,7 @@ const loop = [
       <div class="wrap">
         <span class="eyebrow reveal" style="justify-content:center;">Start with one outcome</span>
         <h2 class="display reveal" data-d="1" style="margin-top:22px;">Pick a goal.<br />Plan a machine.</h2>
-        <p class="lede reveal" data-d="2">Bring one business outcome. In the working session, we'll map the metric, the decisions that affect it, the data those decisions need, and a practical first deployment path.</p>
+        <p class="lede reveal" data-d="2">Bring one business outcome. In an Outcomeering session, we'll map the metric, the decisions that affect it, the data those decisions need, and a practical first deployment path.</p>
         <div class="tidycal-wrap reveal" data-d="3">
           <div class="tidycal-embed" data-path="amitrathore/30-min-to-an-outcome-machine"></div>
         </div>

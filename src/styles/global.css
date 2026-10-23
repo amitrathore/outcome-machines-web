@@ -398,6 +398,7 @@ html[data-theme="light"] .nav.scrolled .nav-links a:not(.nav-cta):hover { color:
 .loop-step::after { content: "→"; position: absolute; right: -10px; top: 30px; color: var(--paper-faint); font-family: var(--font-mono); z-index: 2; }
 .loop-step:nth-child(3)::after { content: "↓"; right: 12px; top: auto; bottom: -13px; }
 .loop-step:last-child::after { content: "↺"; color: var(--signal); }
+.principles .loop-step::after { display: none; }
 @media (max-width: 900px) { .loop-steps { grid-template-columns: 1fr 1fr; } .loop-step::after { display: none; } }
 @media (max-width: 520px) { .loop-steps { grid-template-columns: 1fr; } }
 
